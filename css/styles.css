@@ -471,10 +471,9 @@ address {
 }
 .client-item:hover,
 .client-item:focus {
-  fill: var(--main-color);
   border: 1px solid var(--main-color);
 }
-.client-item .color-icon:hover {
+.client-item:hover .color-icon {
   fill: var(--main-color);
 }
 .client-item {
@@ -507,13 +506,11 @@ address {
 }
 .icons-item:hover,
 .icons-item:focus {
-  fill: var(--title-color);
   background: var(--main-color);
 }
 .icons-item:not(:last-child) {
   margin-right: 10px;
 }
-.card-icon:hover,
-.card-icon:focus {
+.icons-item:hover .card-icon {
   fill: var(--title-color);
 }
