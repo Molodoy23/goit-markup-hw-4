@@ -94,7 +94,7 @@ main {
 
   background: var(--bg-hero-and-footer);
   background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-    url(/images/bg-hero.jpg);
+    url(../images/bg-hero.jpg);
   text-align: center;
 }
 .header-team {
@@ -157,16 +157,16 @@ main {
   background-position: center;
 }
 .advantage-items.icon-satellite::before {
-  background-image: url(/images/icons/icon-satellite.svg);
+  background-image: url(../images/icons/icon-satellite.svg);
 }
 .advantage-items.icon-watch::before {
-  background-image: url(/images/icons/icon-watch.svg);
+  background-image: url(../images/icons/icon-watch.svg);
 }
 .advantage-items.icon-graffic::before {
-  background-image: url(/images/icons/icon-graffic.svg);
+  background-image: url(../images/icons/icon-graffic.svg);
 }
 .advantage-items.icon-astronaut::before {
-  background-image: url(/images/icons/icon-astronaut.svg);
+  background-image: url(../images/icons/icon-astronaut.svg);
 }
 
 .advantage-items:not(:last-child) {
