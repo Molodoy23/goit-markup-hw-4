@@ -26,6 +26,10 @@ li {
   display: flex;
   align-items: center;
 }
+.nav-group {
+  display: flex;
+  align-items: center;
+}
 .nav-items {
   display: flex;
   margin-left: 93px;
