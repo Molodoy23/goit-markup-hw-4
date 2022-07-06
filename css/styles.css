@@ -45,6 +45,7 @@ li {
   letter-spacing: 0.03em;
 }
 .items {
+  position: relative;
   display: block;
   padding-top: 32px;
 
@@ -57,20 +58,34 @@ li {
   letter-spacing: 0.02em;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.is-active::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  background-color: var(--main-color);
+  bottom: 0;
+  border-radius: 2px;
+}
+.items::after {
+  display: block;
+  content: '';
+  background: var(--main-color);
+  height: 4px;
+  margin-top: 28px;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.item:hover .items::after {
+  transform: scaleX(1);
+}
 .items:hover,
 .items:focus {
   color: var(--main-color);
 }
 .is-active {
   color: var(--main-color);
-}
-.is-active::after {
-  display: block;
-  content: '';
-  margin-top: 28px;
-  height: 4px;
-  background: var(--main-color);
-  border-radius: 2px;
 }
 .nav-adress {
   display: flex;
@@ -272,19 +287,27 @@ main {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+
   width: 530px;
   height: 580px;
   background-color: var(--title-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .exit-modal {
   position: absolute;
   right: 0px;
@@ -389,11 +412,12 @@ address {
   line-height: 1.6;
   letter-spacing: 0.03em;
   color: var(--second-color);
-  background: var(--bg-section-team);
+  background-color: var(--bg-section-team);
   border-radius: 4px;
   width: 128px;
   height: 38px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), backgroud 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-buttoms:hover,
@@ -452,12 +476,16 @@ address {
 
 .card-thumb {
   position: relative;
+  overflow: hidden;
 }
 .description-groop {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 24px;
+  width: 100%;
+
   background: rgba(33, 150, 243, 0.9);
   font-family: 'Roboto';
   font-style: normal;
@@ -465,12 +493,14 @@ address {
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
-  width: 100%;
-  /* padding-top: 63px;
-  padding-bottom: 63px;
-  padding-right: 24px;
-  padding-left: 24px; */
+  height: 100%;
+
   color: var(--title-color);
+  transform: translateY(0%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.content-items:hover .description-groop {
+  transform: translateY(-100%);
 }
 .is-hidden {
   visibility: visible;
